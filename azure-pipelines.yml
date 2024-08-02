@@ -21,4 +21,4 @@ steps:
     azureSubscription: 'Azure subscription 1(71a85bf9-3373-4ef1-a17f-5714423bc0fd)'
     appType: 'webApp'
     WebAppName: 'newappservice'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/*.zip'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
