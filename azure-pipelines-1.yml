@@ -45,7 +45,7 @@ steps:
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
-    azureSubscription: 'newremitproject'
+    azureSubscription: 'Azure subscription 1(71a85bf9-3373-4ef1-a17f-5714423bc0fd)'
     appType: 'webApp'
-    WebAppName: 'remitapp'
-    packageForLinux: '$(System.ArtifactsDirectory)/*.zip'
+    WebAppName: 'newappservice'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/*.zip'
