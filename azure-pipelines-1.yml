@@ -48,4 +48,4 @@ steps:
     azureSubscription: 'newremitproject'
     appType: 'webApp'
     WebAppName: 'remitapp'
-    packageForLinux: '$(System.ArtifactsDirectory)/**/*.zip'
+    packageForLinux: '$(System.ArtifactsDirectory)/*.zip'
