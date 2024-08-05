@@ -45,7 +45,7 @@ stages:
        containerRegistry: 'DockerRepo'
        repository: 'prab5674'
        command: 'buildAndPush'
-       Dockerfile: '**/Dockerfile'
+       Dockerfile: 'Dockerfile'
     #- task: AzureRmWebAppDeployment@4
     #  inputs:
     #    ConnectionType: 'AzureRM'
