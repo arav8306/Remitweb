@@ -26,4 +26,9 @@ stages:
         command: build
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         tags: |
-          $(tag)
+    - task: Docker@2
+      inputs:
+        containerRegistry: 'DockerRepo'
+        command: 'push'
+       
+
