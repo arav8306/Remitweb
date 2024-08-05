@@ -30,22 +30,22 @@ stages:
       inputs:
         platform: '$(buildPlatform)'
         configuration: '$(buildConfiguration)'
-    - task: PublishBuildArtifacts@1
-      inputs:
-        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-        ArtifactName: 'drop'
-        publishLocation: 'Container'
-    - task: DownloadBuildArtifacts@1
-      inputs:
-        buildType: 'current'
-        downloadType: 'specific'
-        downloadPath: '$(System.ArtifactsDirectory)'
+    #- task: PublishBuildArtifacts@1
+    #  inputs:
+    #    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    #    ArtifactName: 'drop'
+    #   publishLocation: 'Container'
+    #- task: DownloadBuildArtifacts@1
+    #  inputs:
+    #    buildType: 'current'
+    #    downloadType: 'specific'
+    #    downloadPath: '$(System.ArtifactsDirectory)'
     - task: Docker@2
       inputs:
         containerRegistry: 'DockerRepo'
         repository: 'AravDockerRepo'
         command: 'buildAndPush'
-        Dockerfile: '**/Dockerfile'
+        Dockerfile: '**/Dockerfile'    
     #- task: AzureRmWebAppDeployment@4
     #  inputs:
     #    ConnectionType: 'AzureRM'
