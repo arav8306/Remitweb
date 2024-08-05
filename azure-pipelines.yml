@@ -40,11 +40,17 @@ stages:
         buildType: 'current'
         downloadType: 'specific'
         downloadPath: '$(System.ArtifactsDirectory)'
-    - task: AzureRmWebAppDeployment@4
+    - task: Docker@2
       inputs:
-        ConnectionType: 'AzureRM'
-        azureSubscription: 'Azure subscription 1(71a85bf9-3373-4ef1-a17f-5714423bc0fd)'
-        appType: 'webApp'
-        WebAppName: 'newappservice'
-        packageForLinux: '$(System.ArtifactsDirectory)/*.zip'
+        containerRegistry: 'DockerRepo'
+        repository: 'AravDockerRepo'
+        command: 'buildAndPush'
+        Dockerfile: '**/Dockerfile'
+    #- task: AzureRmWebAppDeployment@4
+    #  inputs:
+    #    ConnectionType: 'AzureRM'
+    #    azureSubscription: 'Azure subscription 1(71a85bf9-3373-4ef1-a17f-5714423bc0fd)'
+    #    appType: 'webApp'
+    #    WebAppName: 'newappservice'
+    #    packageForLinux: '$(System.ArtifactsDirectory)/*.zip'
 
