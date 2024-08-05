@@ -7,7 +7,7 @@ COPY ["RemitWeb.csproj","RemitWeb/"]
 RUN dotnet restore "RemitWeb/RemitWeb.csproj"
 COPY . "/src/RemitWeb/"
 WORKDIR "/src/RemitWeb"
-RUN dotnet build "RemitWeb.csproj" -c Release -o /app/build
+RUN dotnet build "RemitWeb.csproj" -c Release -o /app
 FROM build AS publish
 RUN dotnet publish "RemitWeb.csproj" -c Release -o /app/publish /p:UseAppHost=false
 FROM base AS final
