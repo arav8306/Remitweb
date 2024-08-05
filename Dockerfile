@@ -5,7 +5,7 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0  AS build
 WORKDIR /src
 COPY ["RemitWeb.csproj","RemitWeb/"]
 RUN dotnet restore "RemitWeb/RemitWeb.csproj"
-COPY . "RemitWeb/"
+COPY . "/src/RemitWeb/"
 WORKDIR "/src/RemitWeb"
 RUN dotnet build "RemitWeb.csproj" -c Release -o /app/build
 FROM build AS publish
